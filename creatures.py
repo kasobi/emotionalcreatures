@@ -61,8 +61,29 @@ class Corpus():
 
 class Particle(Corpus):
     #The particle is a variably scale thing that only reacts to forces. Water, rocks, dust, wind, planets, etc.
-    def __init__(self, ):
+    def __init__(self, body=None, momentum=None):
         super().__init__()
+        self.body = body
+        self.momentum = momentum
+
+    def interaction(self, other):
+        pass
 
 
+    
 
+#the x,y,z direction plus a scale factor as compared to static reference
+class Motion():
+    def __init__(self, x, y, z, scalar):
+        self.x = x
+        self.y = y
+        self.z = z
+        self.scalar = scalar
+
+#where the body currently is in reference to other point
+class Position():
+    def __init__(self, x, y, z, reference):
+        self.x = x
+        self.y = y
+        self.z = z
+        self.reference = reference
