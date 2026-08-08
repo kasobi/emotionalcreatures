@@ -15,25 +15,24 @@ class UnitSpaceTime():
 
         #future / present
         self.present = None
+        self.past = None
 
-    def collide():
-        top_to_bottom_vector = []
-        bottom_to_top_vector = []
-        left_to_right_vector = []
-        right_to_left_vector = []
-        forward_to_backward_vector = []
-        backward_to_forward_vector = []
-
-    def top_to_bottom_vector(self):
-        return 
-
-
-
+    def interaction():
+        
 
 
 
 class UnitSphere():
-    def __init__(self, x, y, z, ):
+    pass
+
+
+class InteractionSide():
+    def __init__(self):
+        self.incident_angle = None
+        self.adjacent = None
+        self.opposite = None
+        self.hypotenuse = None
+        self.scalar = None
 
 
     
