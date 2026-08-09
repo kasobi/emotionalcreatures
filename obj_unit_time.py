@@ -35,4 +35,8 @@ class InteractionSide():
         self.scalar = None
 
 
+
+#unit spacetime needs to have sphere on each side of a cube's face. inside and out. A sort of torus mapped to a sphere. 
+#there is a single way in and out. you travel through 6 interconnected cubes mapped to 6 sections of a sphere.
+#each new unit gets added like a graph, or links on a chain. it can only communicate with it's neighbors. 
     
