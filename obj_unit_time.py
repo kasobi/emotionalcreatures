@@ -40,3 +40,7 @@ class InteractionSide():
 #there is a single way in and out. you travel through 6 interconnected cubes mapped to 6 sections of a sphere.
 #each new unit gets added like a graph, or links on a chain. it can only communicate with it's neighbors. 
     
+#unit sphere interaction is within the sphere. the distance from one sphere to the next. A 3-dimensional logorythmic compresion.
+#it is in the volumes between, not the lines and points. use relation between circle and square to create motion. it's the point in between.
+#positives must create negatives tha go the opposite way
+#what happens what two streets meet? the motion must go in two directions at the least. It actually goes in all directions at a time. it just fans out less or more in things like magenets vs. gravity.
