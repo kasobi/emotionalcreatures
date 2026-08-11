@@ -3,8 +3,8 @@ import pygame
 
 
 
-class UnitSpaceTime():
-    def __init__(self):
+class UnitSpace():
+    def __init__(self, coordinates):
         #past
         self.top = None
         self.bottom = None
@@ -14,25 +14,53 @@ class UnitSpaceTime():
         self.backward = None
 
         #future / present
-        self.present = None
-        self.past = None
+        # coordinates go x->y->z
+        self.coordinates = coordinates
 
-    def interaction():
         
 
 
 
+class UnitTimeLink():
+    def __init__(self, sphere_1, sphere_2):
+        self.sphere_1 = sphere_1
+        self.sphere_2 = sphere_2
+        self.orientation_1_to_2 = None
+        self.orientation_2_to_1 = None
+
+
 class UnitSphere():
-    pass
+    def __init__(self, radius, spin, link, space):
+        self.radius = radius
+        self.spin = spin
+        self.time = link
+        self.space = space
+
+class SpaceTimeLattice():
+    def __init__(self, size_x, size_y, size_z):
+        observer = UnitSphere(1, 0, None, None)
+        self.observer = observer
+        lattice_points = {}
+
+        #steps to make
+# start with a line of x. loop end to beginning.
+# create additional lines in y direction. loop together, loop ends at each x. loop y's at the end.
+# create z layers in z direction. loop z 1s to z ends.
+        for z in range(1, size_z+1):
+            for y in range(1, size_y+1):
+                for x in range(1, size_x+1):
+                    lattice_points[f"x,{x},y{y},z{z}"] = UnitSpace([x,y,z])
 
 
-class InteractionSide():
-    def __init__(self):
-        self.incident_angle = None
-        self.adjacent = None
-        self.opposite = None
-        self.hypotenuse = None
-        self.scalar = None
+
+
+
+
+    
+
+
+
+
 
 
 
