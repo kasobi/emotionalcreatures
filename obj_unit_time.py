@@ -37,19 +37,29 @@ class UnitSphere():
         self.space = space
 
 class SpaceTimeLattice():
-    def __init__(self, size_x, size_y, size_z):
+    def __init__(self):
         observer = UnitSphere(1, 0, None, None)
         self.observer = observer
-        lattice_points = {}
+        self.lattice_points = []
+
+    
+    def create_lattice(self, x, y, z):
+        for z in range(1, z + 1):
+            for y in range(1, y + 1):
+                for x in range(1, x + 1):
+                    self.lattice_points.append(f"x{x}y{y}z{z}")
+
+lattice = SpaceTimeLattice()
+lattice.create_lattice(5,5,5)
+
+for i in lattice.lattice_points:
+    print(i)
 
         #steps to make
 # start with a line of x. loop end to beginning.
 # create additional lines in y direction. loop together, loop ends at each x. loop y's at the end.
 # create z layers in z direction. loop z 1s to z ends.
-        for z in range(1, size_z+1):
-            for y in range(1, size_y+1):
-                for x in range(1, size_x+1):
-                    lattice_points[f"x,{x},y{y},z{z}"] = UnitSpace([x,y,z])
+
 
 
 
