@@ -61,6 +61,13 @@ for i in lattice.lattice_points:
 # create z layers in z direction. loop z 1s to z ends.
 
 
+# note: spent today's time working on the logic of the operations. wanting 0(n) processing.
+# thinking about making the lattice expand and contract on itself based on the volume in between.
+# how to represent different angles of connection for map vs actual. thinking as the angle through a wormhole.
+# each integer point in each line has an "interaction zone" between them. This represents the motion of transitioning into that value.
+# work on 1-d first, then attempt additional. 3D scaffold creates interactions I am looking for, so 2D complexity isn't of much interest. 
+
+
 
 
 
