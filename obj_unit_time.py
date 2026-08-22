@@ -89,3 +89,63 @@ for i in lattice.lattice_points:
 #it is in the volumes between, not the lines and points. use relation between circle and square to create motion. it's the point in between.
 #positives must create negatives tha go the opposite way
 #what happens what two streets meet? the motion must go in two directions at the least. It actually goes in all directions at a time. it just fans out less or more in things like magenets vs. gravity.
+
+# Notes from boots
+#Synchronous State Ring practice
+
+
+class State:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+def build_ring(values):
+    if len(values) < 1:
+        return []
+    state_list = []
+
+    for i in values:
+        state = State(i)
+        state_list.append(state)
+
+    count = len(state_list)
+    index = 0
+
+    for i in state_list:
+        i.left = state_list[(index - 1)% count]
+        i.right = state_list[(index + 1)% count]
+        index += 1
+
+    return state_list
+
+
+def step_ring(states):
+    new_values = []
+    for i in states:
+        new_values.append(i.left.value + i.right.value)
+
+    for i in range(len(new_values)):
+        states[i].value = new_values[i]
+
+    return states
+
+#A wrapping (toroidal) grid would instead do:
+
+up = grid[(row - 1) % height][col]
+down = grid[(row + 1) % height][col]
+left = grid[row][(col - 1) % width]
+right = grid[row][(col + 1) % width]
+
+
+
+def get_neighbors_3d(grid, x, y, z, size_x, size_y, size_z):
+    neighbors = []
+    neighbors.append(grid[(x - 1) % size_x][y][z])
+    neighbors.append(grid[(x + 1) % size_x][y][z])
+    neighbors.append(grid[x][(y - 1) % size_y][z])
+    neighbors.append(grid[x][(y + 1) % size_y][z])
+    neighbors.append(grid[x][y][(z - 1) % size_z])
+    neighbors.append(grid[x][y][(z + 1) % size_z])
+    return neighbors
