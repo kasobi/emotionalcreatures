@@ -1,22 +1,38 @@
 import pygame
 
 from CONSTANTS import *
+from creatures import RectShape
 
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
+dt = 0
 running = True
 
-BLACK = pygame.Color(0,0,0,1)
-RED = pygame.Color(255,0,0,1)
-GREEN = pygame.Color(0,255,0,1)
-BLUE = pygame.Color(0,0,255,1)
+updatable = pygame.sprite.Group()
+drawable = pygame.sprite.Group()
+
+RectShape.containers = updatable, drawable
+
+rect_size = 10
+x_cord = 0
+y_cord = 0
+
+num_x = SCREEN_WIDTH//rect_size
+num_y = SCREEN_HEIGHT//rect_size
 
 
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+grid = {}
 
-enemy_pos_15 = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.5)
+for x in range(num_x):
+    for y in range(num_y):
+        grid[f"x{x}y{y}"] = RectShape(x * rect_size, y * rect_size, rect_size, rect_size)
+
+for rect in grid:
+    cell = grid[rect]
+    y = cell.
+
 
 def main():
 
@@ -24,24 +40,13 @@ def main():
 
         screen.fill("black")
 
-        
-        pygame.draw.circle(screen, "red", player_pos, 40)
+        for i in drawable:
+            i.draw(screen)
 
-        pygame.draw.circle(screen, "green", enemy_pos_15, 20)
+        for i in updatable:
+            i.update()
 
-        chase = enemy_pos_15.smoothstep(player_pos, .1)
 
-        enemy_pos_15.x, enemy_pos_15.y = chase
-
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
-            player_pos.y -= 300 * dt
-        if keys[pygame.K_s]:
-            player_pos.y += 300 * dt
-        if keys[pygame.K_a]:
-            player_pos.x -= 300 * dt
-        if keys[pygame.K_d]:
-            player_pos.x += 300 * dt
 
         pygame.display.flip()
 

@@ -1,38 +1,87 @@
+import pygame
 from CONSTANTS import Value_type
 
-#The spirits and souls that inhabit creatures
-class Animus():
-    #The animus is the thing that give life. It is a singular entity for motion and existance. That which give movement.
-    def __init__(self, host):
-        self.host = []
-        pass
 
-    def possess(self, host):
-        host.spirit.append(self)
-        self.host.append(host)
+class RectShape(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height):
+        if hasattr(self, "containers"):
+            super().__init__(self.containers)
+        else:
+            super().__init__()
 
-    def exercise(self, host):
-        self.host.remove(host)
-        host.spirit.remove(self)
+        self.area = pygame.FRect(x, y, width, height)
+        self.past = pygame.Color(127, 127, 127, 127)
+        self.present = pygame.Color(127, 127, 127, 127)
 
-    def action():
-        pass
+        self.neighbor_top = None
+        self.neighbor_bottom = None
+        self.neighbor_left = None
+        self.neighbor_right = None
 
-    def sense():
-        pass
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.present, self.area)
+
+    def update(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_SPACE] and self.area.collidepoint(pygame.mouse.get_pos()):
+            self.present = self.present.lerp(pygame.Color("black"), .5)
+        
+        
 
 
-class Force(Animus):
-    #A force is the simplest spirit of motion. Gravity, Momentum, Electromagnetic, etc.
-    def __init__(self, host):
-        super().__init__(host)
 
 
-class Spririt(Animus):
-    pass
 
-class Soul(Spririt):
-    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #The spirits and souls that inhabit creatures
+# class Animus():
+#     #The animus is the thing that give life. It is a singular entity for motion and existance. That which give movement.
+#     def __init__(self, host):
+#         self.host = []
+#         pass
+
+#     def possess(self, host):
+#         host.spirit.append(self)
+#         self.host.append(host)
+
+#     def exercise(self, host):
+#         self.host.remove(host)
+#         host.spirit.remove(self)
+
+#     def action():
+#         pass
+
+#     def sense():
+#         pass
+
+
+# class Force(Animus):
+#     #A force is the simplest spirit of motion. Gravity, Momentum, Electromagnetic, etc.
+#     def __init__(self, host):
+#         super().__init__(host)
+
+
+# class Spririt(Animus):
+#     pass
+
+# class Soul(Spririt):
+#     pass
 
 
 
