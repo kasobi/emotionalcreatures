@@ -149,3 +149,8 @@ def get_neighbors_3d(grid, x, y, z, size_x, size_y, size_z):
     neighbors.append(grid[x][y][(z - 1) % size_z])
     neighbors.append(grid[x][y][(z + 1) % size_z])
     return neighbors
+
+
+## no pythong today. did server install onto old hardware using bootable drive.
+# many headache. all the terminal. hours and hours. still trying to update nvidia drivers
+
