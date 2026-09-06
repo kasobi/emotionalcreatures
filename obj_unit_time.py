@@ -154,3 +154,30 @@ def get_neighbors_3d(grid, x, y, z, size_x, size_y, size_z):
 ## no pythong today. did server install onto old hardware using bootable drive.
 # many headache. all the terminal. hours and hours. still trying to update nvidia drivers
 
+# trying to figure out how to do the color changing in main.py play, but as "buckets" with specific spectral emitance.
+# make each point an atom, then have the "energy" share between them at allowable frequencies. The rest bouncing around in a 4D central
+# volume. have a relation to the amount in the volume to a quantity of rotation to that point. have the amount of sharing of energy
+# between one "emitance" be between the suroundings. figuring out sharing ratio for [n] points. making it a constant is just making
+# the formula for them. but it must work for anything that is put in it.
+# how do I handle "too much"? What ratio or value is there? there can be lots of greens, but maybe an alpha?
+# represent rotation as spirals around the color wheel with black being 0 and 1 being white. the red, green, blue are laid out as
+# a line around a sphere/cylinder to make the color.
+# this shows orientation in 3D space. making 0 be pointed maximally away from you and 1 being pointed maximally toward you.
+# the color shows the orientation otherwise.
+# 
+# it doesn't matter how big black and white are. they can be infinite or nothing. as long as they are connected by the finite.
+# all of now is simply the finite of the infinite.
+#
+# treat the "top" and "bottom" as two circles. the amount of rotation between them rotates the connecting lines by some angle.
+# the "compression" or "tension" between them is the curve between them.
+#
+# as two points meet, the compression points are on the surface of the spherical explosion. translate the sphere into
+# a single point by turing it's coordinates into GRB and it's radii into brightness.
+# use matrix multiplication to have all neighbors interact. the volume calculation should grow by O(n*j) where n is the number of pieces
+# and j is the number of neighbors. Or otherwords, it grows by N number of points.
+# you could have it grow by log(n) points if you knew how to calculate the exact way a volume moves by only seeing the boundary.
+# can you know the entire volume through only the boundary? more, "How much of the volume is needed to store knowledge of the whole volume?"
+# something is always lost, so what do you take with you?
+#
+# trying to use geometry to think through the math of what I want to show always feels like an acid trip or something.
+# it's helpful because I feel some sort of causality or momentum, vs pure math where equations feel empty. 
